@@ -1,0 +1,26 @@
+[
+  {
+    "match_number": 1,
+    "comp_level": "qm",
+    "alliances": {
+      "red": { "teams": ["frc2068","frc9999","frc9998"] },
+      "blue": { "teams": ["frc9997","frc9996","frc9995"] }
+    }
+  },
+  {
+    "match_number": 2,
+    "comp_level": "qm",
+    "alliances": {
+      "red": { "teams": ["frc2068","frc9999","frc9998"] },
+      "blue": { "teams": ["frc9997","frc9996","frc9995"] }
+    }
+  },
+    {
+    "match_number": 3,
+    "comp_level": "qm",
+    "alliances": {
+      "red": { "teams": ["frc2068","frc9999","frc9998"] },
+      "blue": { "teams": ["frc9997","frc9996","frc9995"] }
+    }
+  }
+]

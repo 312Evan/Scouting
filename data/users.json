@@ -1,0 +1,34 @@
+{
+    "users": {
+        "evan": {
+            "scouter": true,
+            "shiftsAssigned": 3,
+            "shiftsSubmitted": 2
+        },
+        "test1": {
+            "scouter": true,
+            "shiftsAssigned": 3,
+            "shiftsSubmitted": 0
+        },
+        "test2": {
+            "scouter": true,
+            "shiftsAssigned": 3,
+            "shiftsSubmitted": 0
+        },
+        "test3": {
+            "scouter": true,
+            "shiftsAssigned": 3,
+            "shiftsSubmitted": 0
+        },
+        "test4": {
+            "scouter": true,
+            "shiftsAssigned": 3,
+            "shiftsSubmitted": 0
+        },
+        "test5": {
+            "scouter": true,
+            "shiftsAssigned": 3,
+            "shiftsSubmitted": 0
+        }
+    }
+}

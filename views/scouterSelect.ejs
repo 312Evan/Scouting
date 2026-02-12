@@ -1,0 +1,21 @@
+<h2>Event: <%= eventKey %></h2>
+
+<% if (!scheduleAvailable) { %>
+    <h3>Match Schedule is not currently available.</h3>
+<% } else { %>
+
+<form action="/login" method="POST">
+    <input type="hidden" name="eventKey" value="<%= eventKey %>">
+
+    <select name="username">
+        <% Object.keys(users).forEach(user => { %>
+            <% if (users[user].scouter) { %>
+                <option value="<%= user %>"><%= user %></option>
+            <% } %>
+        <% }) %>
+    </select>
+
+    <button type="submit">Login</button>
+</form>
+
+<% } %>

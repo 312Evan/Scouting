@@ -1,0 +1,17 @@
+<h2>Welcome <%= username %></h2>
+<h3>Your Assigned Matches & Teams:</h3>
+
+<ul>
+<% matches.forEach(item => { %>
+    <li>
+        Match <%= item.match %> — Team <%= item.team %>
+        <form action="/scout" method="POST" style="display:inline;">
+            <input type="hidden" name="eventKey" value="<%= eventKey %>">
+            <input type="hidden" name="username" value="<%= username %>">
+            <input type="hidden" name="matchNumber" value="<%= item.match %>">
+            <input type="hidden" name="teamNumber" value="<%= item.team %>">
+            <button type="submit">Scout</button>
+        </form>
+    </li>
+<% }) %>
+</ul>

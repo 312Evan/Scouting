@@ -1,0 +1,57 @@
+<h2>Scouting Match <%= matchNumber %> — Team <%= teamNumber %></h2>
+
+<form action="/submit-scout" method="POST">
+    <input type="hidden" name="eventKey" value="<%= eventKey %>">
+    <input type="hidden" name="username" value="<%= username %>">
+    <input type="hidden" name="matchNumber" value="<%= matchNumber %>">
+    <input type="hidden" name="teamNumber" value="<%= teamNumber %>">
+
+    <label>1. How good is their auto routine?</label><br>
+    <input type="radio" name="autoRoutine" value="Doesn't score/move" required> Doesn't score/move<br>
+    <input type="radio" name="autoRoutine" value="Moves then shoots"> Moves then shoots<br>
+    <input type="radio" name="autoRoutine" value="Moves then shoots multiple cycles"> Moves then shoots, multiple cycles<br><br>
+
+    <label>2. Did the alliance win auto?</label><br>
+    <input type="radio" name="autoWin" value="Yes" required> Yes<br>
+    <input type="radio" name="autoWin" value="No"> No<br><br>
+
+    <label>3. Actions performed:</label><br>
+    <button type="button" onclick="increment('score')">Score: <span id="scoreVal">0</span></button>
+    <input type="hidden" id="score" name="score" value="0"><br>
+
+    <button type="button" onclick="increment('climb')">Climb: <span id="climbVal">0</span></button>
+    <input type="hidden" id="climb" name="climb" value="0"><br>
+
+    <button type="button" onclick="increment('pass')">Pass: <span id="passVal">0</span></button>
+    <input type="hidden" id="pass" name="pass" value="0"><br><br>
+
+    <label>4. Was the team being defensive or offensive?</label><br>
+    <input type="radio" name="role" value="Offensive" required> Offensive<br>
+    <input type="radio" name="role" value="Defensive"> Defensive<br><br>
+
+    <label>5. What kind of shooting mechanism did they have?</label><br>
+    <select name="shootingMechanism" required>
+        <option value="">--Select--</option>
+        <option value="Turret">Turret</option>
+        <option value="Stationary">Stationary</option>
+        <option value="Double Shooter">Double Shooter</option>
+        <option value="N/A">N/A</option>
+    </select><br><br>
+
+    <label>6. Can they climb?</label><br>
+    <input type="radio" name="canClimb" value="Yes" required> Yes<br>
+    <input type="radio" name="canClimb" value="No"> No<br><br>
+
+    <button type="submit">Submit Scouting</button>
+</form>
+
+<script>
+function increment(action) {
+    const hidden = document.getElementById(action);
+    const display = document.getElementById(action + "Val");
+    let val = parseInt(hidden.value);
+    val++;
+    hidden.value = val;
+    display.textContent = val;
+}
+</script>

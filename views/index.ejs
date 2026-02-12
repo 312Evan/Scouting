@@ -1,0 +1,11 @@
+<h2>Select Event</h2>
+<form action="/select-event" method="POST">
+    <select name="eventKey">
+        <% events.forEach(event => { %>
+            <option value="<%= event.key %>">
+                <%= event.name %>
+            </option>
+        <% }) %>
+    </select>
+    <button type="submit">Select</button>
+</form>
