@@ -5,19 +5,18 @@ const axios = require('axios');
 const bodyParser = require('body-parser');
 const ExcelJS = require('exceljs');
 
+require('dotenv').config();
+
 const app = express();
 const PORT = 3000;
-const TBA_KEY = 'dIWEQSv1CCDTOTidviPJDmOSgCDyE2C5BlL6HmG32e5V2NtDYdTYrmaPH5e5z4M7';
+const TBA_KEY = process.env.BLUE_ALLIANCE;
 
-// Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-// File paths
 const usersPath = path.join(__dirname, 'data', 'users.json');
 
-// Dev Mode Toggle
 const DEV_MODE = true;
 const DEV_EVENT_KEY = "devtest";
 
@@ -51,7 +50,6 @@ app.get('/', async (req, res) => {
 app.post('/select-event', async (req, res) => {
     const { eventKey } = req.body;
 
-    // ===== DEV MODE =====
     if (DEV_MODE && eventKey === DEV_EVENT_KEY) {
         const matches = require('./data/dev_matches.json');
         const usersData = JSON.parse(fs.readFileSync(usersPath));
@@ -73,10 +71,8 @@ app.post('/select-event', async (req, res) => {
             });
         });
 
-        // Update shiftsAssigned
         scouters.forEach(s => usersData.users[s].shiftsAssigned = schedule[s].length);
 
-        // Save schedule
         const schedulePath = path.join(__dirname, 'data', `schedule_${eventKey}.json`);
         fs.writeFileSync(schedulePath, JSON.stringify(schedule, null, 4));
         fs.writeFileSync(usersPath, JSON.stringify(usersData, null, 4));
@@ -182,26 +178,20 @@ app.post('/submit-scout', async (req, res) => {
     const exportPath = path.join(__dirname, 'exports', `${eventKey}.xlsx`);
     const workbook = new ExcelJS.Workbook();
 
-    // If file exists, read it
     if (fs.existsSync(exportPath)) {
         await workbook.xlsx.readFile(exportPath);
     }
 
-    // Get or create "Summary" sheet
     let sheet = workbook.getWorksheet("Summary");
     if (!sheet) {
         sheet = workbook.addWorksheet("Summary");
-        // Add headers dynamically from data keys
         sheet.addRow(Object.keys(data));
     }
 
-    // Add a row for this submission
     sheet.addRow(Object.values(data));
 
-    // Save the workbook (creates file if missing)
     await workbook.xlsx.writeFile(exportPath);
 
-    // Update shiftsSubmitted in users.json
     const users = JSON.parse(fs.readFileSync(usersPath));
     users.users[username].shiftsSubmitted++;
     fs.writeFileSync(usersPath, JSON.stringify(users, null, 4));
