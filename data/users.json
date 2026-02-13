@@ -17,7 +17,7 @@
         },
         "RebeccaR": {
             "scouter": true,
-            "shiftsAssigned": 3,
+            "shiftsAssigned": 2,
             "shiftsSubmitted": 0
         },
         "JarrodC": {
@@ -26,8 +26,8 @@
             "shiftsSubmitted": 0
         },
         "BrandonM": {
-            "scouter": true,
-            "shiftsAssigned": 3,
+            "scouter": false,
+            "shiftsAssigned": 1,
             "shiftsSubmitted": 0
         },
         "BrandonB": {
@@ -41,8 +41,8 @@
             "shiftsSubmitted": 0
         },
         "AkshyatD": {
-            "scouter": false,
-            "shiftsAssigned": 0,
+            "scouter": true,
+            "shiftsAssigned": 2,
             "shiftsSubmitted": 0
         },
         "MichaelK": {
@@ -57,7 +57,7 @@
         },
         "AbrarJ": {
             "scouter": true,
-            "shiftsAssigned": 3,
+            "shiftsAssigned": 1,
             "shiftsSubmitted": 0
         },
         "TylerP": {
@@ -67,11 +67,11 @@
         },
         "PhilipB": {
             "scouter": true,
-            "shiftsAssigned": 3,
+            "shiftsAssigned": 2,
             "shiftsSubmitted": 0
         },
         "SayushT": {
-            "scouter": false,
+            "scouter": true,
             "shiftsAssigned": 0,
             "shiftsSubmitted": 0
         },
@@ -86,8 +86,8 @@
             "shiftsSubmitted": 0
         },
         "ShadikshyaS": {
-            "scouter": false,
-            "shiftsAssigned": 0,
+            "scouter": true,
+            "shiftsAssigned": 2,
             "shiftsSubmitted": 0
         },
         "OwenB": {
@@ -107,11 +107,11 @@
         },
         "SamK": {
             "scouter": true,
-            "shiftsAssigned": 2,
+            "shiftsAssigned": 3,
             "shiftsSubmitted": 0
         },
         "JacquelineD": {
-            "scouter": false,
+            "scouter": true,
             "shiftsAssigned": 0,
             "shiftsSubmitted": 0
         },
@@ -127,12 +127,12 @@
         },
         "RamM": {
             "scouter": true,
-            "shiftsAssigned": 3,
+            "shiftsAssigned": 1,
             "shiftsSubmitted": 0
         },
         "PurnoK": {
-            "scouter": false,
-            "shiftsAssigned": 0,
+            "scouter": true,
+            "shiftsAssigned": 2,
             "shiftsSubmitted": 0
         },
         "DonovanP": {
@@ -146,8 +146,8 @@
             "shiftsSubmitted": 0
         },
         "AuroraK": {
-            "scouter": false,
-            "shiftsAssigned": 0,
+            "scouter": true,
+            "shiftsAssigned": 2,
             "shiftsSubmitted": 0
         }
     }
