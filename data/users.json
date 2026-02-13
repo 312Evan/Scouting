@@ -1,33 +1,153 @@
 {
     "users": {
-        "evan": {
-            "scouter": true,
-            "shiftsAssigned": 3,
-            "shiftsSubmitted": 2
+        "AriP": {
+            "scouter": false,
+            "shiftsAssigned": 0,
+            "shiftsSubmitted": 0
         },
-        "test1": {
+        "JasmineM": {
+            "scouter": false,
+            "shiftsAssigned": 0,
+            "shiftsSubmitted": 0
+        },
+        "LukeP": {
+            "scouter": false,
+            "shiftsAssigned": 0,
+            "shiftsSubmitted": 0
+        },
+        "RebeccaR": {
             "scouter": true,
             "shiftsAssigned": 3,
             "shiftsSubmitted": 0
         },
-        "test2": {
+        "JarrodC": {
+            "scouter": false,
+            "shiftsAssigned": 0,
+            "shiftsSubmitted": 0
+        },
+        "BrandonM": {
             "scouter": true,
             "shiftsAssigned": 3,
             "shiftsSubmitted": 0
         },
-        "test3": {
+        "BrandonB": {
+            "scouter": false,
+            "shiftsAssigned": 0,
+            "shiftsSubmitted": 0
+        },
+        "RachaelZ": {
+            "scouter": false,
+            "shiftsAssigned": 0,
+            "shiftsSubmitted": 0
+        },
+        "AkshyatD": {
+            "scouter": false,
+            "shiftsAssigned": 0,
+            "shiftsSubmitted": 0
+        },
+        "MichaelK": {
+            "scouter": false,
+            "shiftsAssigned": 0,
+            "shiftsSubmitted": 0
+        },
+        "LandonD": {
+            "scouter": false,
+            "shiftsAssigned": 0,
+            "shiftsSubmitted": 0
+        },
+        "AbrarJ": {
             "scouter": true,
             "shiftsAssigned": 3,
             "shiftsSubmitted": 0
         },
-        "test4": {
+        "TylerP": {
+            "scouter": false,
+            "shiftsAssigned": 0,
+            "shiftsSubmitted": 0
+        },
+        "PhilipB": {
             "scouter": true,
             "shiftsAssigned": 3,
             "shiftsSubmitted": 0
         },
-        "test5": {
+        "SayushT": {
+            "scouter": false,
+            "shiftsAssigned": 0,
+            "shiftsSubmitted": 0
+        },
+        "JasonN": {
+            "scouter": false,
+            "shiftsAssigned": 0,
+            "shiftsSubmitted": 0
+        },
+        "JudeD": {
+            "scouter": false,
+            "shiftsAssigned": 0,
+            "shiftsSubmitted": 0
+        },
+        "ShadikshyaS": {
+            "scouter": false,
+            "shiftsAssigned": 0,
+            "shiftsSubmitted": 0
+        },
+        "OwenB": {
+            "scouter": false,
+            "shiftsAssigned": 0,
+            "shiftsSubmitted": 0
+        },
+        "GabrielleA": {
+            "scouter": false,
+            "shiftsAssigned": 0,
+            "shiftsSubmitted": 0
+        },
+        "EvanM": {
+            "scouter": false,
+            "shiftsAssigned": 0,
+            "shiftsSubmitted": 0
+        },
+        "SamK": {
+            "scouter": true,
+            "shiftsAssigned": 2,
+            "shiftsSubmitted": 0
+        },
+        "JacquelineD": {
+            "scouter": false,
+            "shiftsAssigned": 0,
+            "shiftsSubmitted": 0
+        },
+        "NorahB": {
+            "scouter": false,
+            "shiftsAssigned": 0,
+            "shiftsSubmitted": 0
+        },
+        "XavierN": {
+            "scouter": false,
+            "shiftsAssigned": 0,
+            "shiftsSubmitted": 0
+        },
+        "RamM": {
             "scouter": true,
             "shiftsAssigned": 3,
+            "shiftsSubmitted": 0
+        },
+        "PurnoK": {
+            "scouter": false,
+            "shiftsAssigned": 0,
+            "shiftsSubmitted": 0
+        },
+        "DonovanP": {
+            "scouter": true,
+            "shiftsAssigned": 1,
+            "shiftsSubmitted": 0
+        },
+        "IsabelR": {
+            "scouter": false,
+            "shiftsAssigned": 0,
+            "shiftsSubmitted": 0
+        },
+        "AuroraK": {
+            "scouter": false,
+            "shiftsAssigned": 0,
             "shiftsSubmitted": 0
         }
     }

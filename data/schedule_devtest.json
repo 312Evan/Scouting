@@ -1,50 +1,8 @@
 {
-    "evan": [
+    "RebeccaR": [
         {
             "match": 1,
-            "team": "frc9995"
-        },
-        {
-            "match": 2,
-            "team": "frc9999"
-        },
-        {
-            "match": 3,
-            "team": "frc9995"
-        }
-    ],
-    "test1": [
-        {
-            "match": 1,
-            "team": "frc9996"
-        },
-        {
-            "match": 2,
-            "team": "frc9998"
-        },
-        {
-            "match": 3,
-            "team": "frc9996"
-        }
-    ],
-    "test2": [
-        {
-            "match": 1,
-            "team": "frc9998"
-        },
-        {
-            "match": 2,
             "team": "frc9997"
-        },
-        {
-            "match": 3,
-            "team": "frc9997"
-        }
-    ],
-    "test3": [
-        {
-            "match": 1,
-            "team": "frc9999"
         },
         {
             "match": 2,
@@ -52,35 +10,79 @@
         },
         {
             "match": 3,
-            "team": "frc9998"
+            "team": "frc2068"
         }
     ],
-    "test4": [
+    "BrandonM": [
+        {
+            "match": 1,
+            "team": "frc9996"
+        },
+        {
+            "match": 2,
+            "team": "frc9997"
+        },
+        {
+            "match": 3,
+            "team": "frc9995"
+        }
+    ],
+    "AbrarJ": [
+        {
+            "match": 1,
+            "team": "frc9995"
+        },
+        {
+            "match": 2,
+            "team": "frc9998"
+        },
+        {
+            "match": 3,
+            "team": "frc9997"
+        }
+    ],
+    "PhilipB": [
         {
             "match": 1,
             "team": "frc2068"
         },
         {
             "match": 2,
-            "team": "frc2068"
+            "team": "frc9999"
         },
         {
             "match": 3,
             "team": "frc9999"
         }
     ],
-    "test5": [
+    "SamK": [
         {
             "match": 1,
-            "team": "frc9997"
+            "team": "frc9999"
         },
         {
             "match": 2,
             "team": "frc9995"
+        }
+    ],
+    "RamM": [
+        {
+            "match": 1,
+            "team": "frc9998"
+        },
+        {
+            "match": 2,
+            "team": "frc2068"
         },
         {
             "match": 3,
-            "team": "frc2068"
+            "team": "frc9998"
+        }
+    ],
+    "DonovanP": [
+        {
+            "match": 3,
+            "team": "frc9996"
         }
     ]
 }

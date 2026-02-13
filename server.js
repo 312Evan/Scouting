@@ -14,15 +14,14 @@ const TBA_KEY = process.env.BLUE_ALLIANCE;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
+app.use(express.static(path.join(__dirname, 'public')));
 
 const usersPath = path.join(__dirname, 'data', 'users.json');
 
 const DEV_MODE = true;
 const DEV_EVENT_KEY = "devtest";
 
-// ===============================
-// HOME - Show Team 2068 Events
-// ===============================
+// HOME
 app.get('/', async (req, res) => {
     if (DEV_MODE) {
         return res.render('index', {
@@ -44,9 +43,7 @@ app.get('/', async (req, res) => {
     }
 });
 
-// ===============================
 // EVENT SELECTED
-// ===============================
 app.post('/select-event', async (req, res) => {
     const { eventKey } = req.body;
 
@@ -138,9 +135,7 @@ app.post('/select-event', async (req, res) => {
     }
 });
 
-// ===============================
 // LOGIN
-// ===============================
 app.post('/login', (req, res) => {
     const { eventKey, username } = req.body;
     const schedulePath = path.join(__dirname, 'data', `schedule_${eventKey}.json`);
@@ -154,9 +149,7 @@ app.post('/login', (req, res) => {
     });
 });
 
-// ===============================
 // SCOUT MATCH
-// ===============================
 app.post('/scout', (req, res) => {
     const { eventKey, username, matchNumber, teamNumber } = req.body;
 
@@ -168,9 +161,7 @@ app.post('/scout', (req, res) => {
     });
 });
 
-// ===============================
 // SUBMIT SCOUT
-// ===============================
 app.post('/submit-scout', async (req, res) => {
     const data = req.body;
     const { eventKey, username } = data;

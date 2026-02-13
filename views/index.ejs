@@ -1,11 +1,24 @@
-<h2>Select Event</h2>
-<form action="/select-event" method="POST">
-    <select name="eventKey">
-        <% events.forEach(event => { %>
-            <option value="<%= event.key %>">
-                <%= event.name %>
-            </option>
-        <% }) %>
-    </select>
-    <button type="submit">Select</button>
-</form>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Scouting</title>
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <h2>Select Event</h2>
+    <form action="/select-event" method="POST">
+        <select name="eventKey">
+            <% events.forEach(event=> { %>
+                <option value="<%= event.key %>">
+                    <%= event.name %>
+                </option>
+                <% }) %>
+        </select>
+        <button type="submit">Select</button>
+    </form>
+</body>
+
+</html>

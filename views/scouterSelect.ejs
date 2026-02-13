@@ -1,21 +1,36 @@
-<h2>Event: <%= eventKey %></h2>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Scouting</title>
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
 
-<% if (!scheduleAvailable) { %>
-    <h3>Match Schedule is not currently available.</h3>
-<% } else { %>
+<body>
+    <h2>Event: <%= eventKey %>
+    </h2>
 
-<form action="/login" method="POST">
-    <input type="hidden" name="eventKey" value="<%= eventKey %>">
+    <% if (!scheduleAvailable) { %>
+        <h3>Match Schedule is not currently available.</h3>
+        <% } else { %>
 
-    <select name="username">
-        <% Object.keys(users).forEach(user => { %>
-            <% if (users[user].scouter) { %>
-                <option value="<%= user %>"><%= user %></option>
+            <form action="/login" method="POST">
+                <input type="hidden" name="eventKey" value="<%= eventKey %>">
+
+                <select name="username">
+                    <% Object.keys(users).forEach(user=> { %>
+                        <% if (users[user].scouter) { %>
+                            <option value="<%= user %>">
+                                <%= user %>
+                            </option>
+                            <% } %>
+                                <% }) %>
+                </select>
+
+                <button type="submit">Login</button>
+            </form>
+
             <% } %>
-        <% }) %>
-    </select>
+</body>
 
-    <button type="submit">Login</button>
-</form>
-
-<% } %>
+</html>
