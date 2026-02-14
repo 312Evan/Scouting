@@ -17,7 +17,7 @@
         },
         "RebeccaR": {
             "scouter": true,
-            "shiftsAssigned": 2,
+            "shiftsAssigned": 27,
             "shiftsSubmitted": 0
         },
         "JarrodC": {
@@ -42,7 +42,7 @@
         },
         "AkshyatD": {
             "scouter": true,
-            "shiftsAssigned": 2,
+            "shiftsAssigned": 27,
             "shiftsSubmitted": 0
         },
         "MichaelK": {
@@ -51,51 +51,46 @@
             "shiftsSubmitted": 0
         },
         "LandonD": {
-            "scouter": false,
-            "shiftsAssigned": 0,
+            "scouter": true,
+            "shiftsAssigned": 16,
             "shiftsSubmitted": 0
         },
         "AbrarJ": {
             "scouter": true,
-            "shiftsAssigned": 1,
+            "shiftsAssigned": 21,
             "shiftsSubmitted": 0
         },
         "TylerP": {
-            "scouter": false,
-            "shiftsAssigned": 0,
+            "scouter": true,
+            "shiftsAssigned": 24,
             "shiftsSubmitted": 0
         },
         "PhilipB": {
             "scouter": true,
-            "shiftsAssigned": 2,
+            "shiftsAssigned": 15,
             "shiftsSubmitted": 0
         },
         "SayushT": {
             "scouter": true,
-            "shiftsAssigned": 0,
+            "shiftsAssigned": 20,
             "shiftsSubmitted": 0
         },
         "JasonN": {
-            "scouter": false,
-            "shiftsAssigned": 0,
+            "scouter": true,
+            "shiftsAssigned": 17,
             "shiftsSubmitted": 0
         },
         "JudeD": {
-            "scouter": false,
-            "shiftsAssigned": 0,
+            "scouter": true,
+            "shiftsAssigned": 16,
             "shiftsSubmitted": 0
         },
         "ShadikshyaS": {
             "scouter": true,
-            "shiftsAssigned": 2,
+            "shiftsAssigned": 20,
             "shiftsSubmitted": 0
         },
         "OwenB": {
-            "scouter": false,
-            "shiftsAssigned": 0,
-            "shiftsSubmitted": 0
-        },
-        "GabrielleA": {
             "scouter": false,
             "shiftsAssigned": 0,
             "shiftsSubmitted": 0
@@ -107,12 +102,12 @@
         },
         "SamK": {
             "scouter": true,
-            "shiftsAssigned": 3,
+            "shiftsAssigned": 16,
             "shiftsSubmitted": 0
         },
         "JacquelineD": {
             "scouter": true,
-            "shiftsAssigned": 0,
+            "shiftsAssigned": 14,
             "shiftsSubmitted": 0
         },
         "NorahB": {
@@ -127,17 +122,17 @@
         },
         "RamM": {
             "scouter": true,
-            "shiftsAssigned": 1,
+            "shiftsAssigned": 20,
             "shiftsSubmitted": 0
         },
         "PurnoK": {
             "scouter": true,
-            "shiftsAssigned": 2,
+            "shiftsAssigned": 12,
             "shiftsSubmitted": 0
         },
         "DonovanP": {
             "scouter": true,
-            "shiftsAssigned": 1,
+            "shiftsAssigned": 19,
             "shiftsSubmitted": 0
         },
         "IsabelR": {
@@ -147,7 +142,7 @@
         },
         "AuroraK": {
             "scouter": true,
-            "shiftsAssigned": 2,
+            "shiftsAssigned": 16,
             "shiftsSubmitted": 0
         }
     }
