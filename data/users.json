@@ -17,8 +17,8 @@
         },
         "RebeccaR": {
             "scouter": true,
-            "shiftsAssigned": 27,
-            "shiftsSubmitted": 0
+            "shiftsAssigned": 16,
+            "shiftsSubmitted": 2
         },
         "JarrodC": {
             "scouter": false,
@@ -42,7 +42,7 @@
         },
         "AkshyatD": {
             "scouter": true,
-            "shiftsAssigned": 27,
+            "shiftsAssigned": 16,
             "shiftsSubmitted": 0
         },
         "MichaelK": {
@@ -57,28 +57,28 @@
         },
         "AbrarJ": {
             "scouter": true,
-            "shiftsAssigned": 21,
+            "shiftsAssigned": 16,
             "shiftsSubmitted": 0
         },
         "TylerP": {
             "scouter": true,
-            "shiftsAssigned": 24,
+            "shiftsAssigned": 16,
             "shiftsSubmitted": 0
         },
         "PhilipB": {
             "scouter": true,
-            "shiftsAssigned": 15,
+            "shiftsAssigned": 16,
             "shiftsSubmitted": 0
         },
         "SayushT": {
             "scouter": true,
-            "shiftsAssigned": 20,
+            "shiftsAssigned": 16,
             "shiftsSubmitted": 0
         },
         "JasonN": {
             "scouter": true,
-            "shiftsAssigned": 17,
-            "shiftsSubmitted": 0
+            "shiftsAssigned": 16,
+            "shiftsSubmitted": 1
         },
         "JudeD": {
             "scouter": true,
@@ -87,7 +87,7 @@
         },
         "ShadikshyaS": {
             "scouter": true,
-            "shiftsAssigned": 20,
+            "shiftsAssigned": 16,
             "shiftsSubmitted": 0
         },
         "OwenB": {
@@ -107,7 +107,7 @@
         },
         "JacquelineD": {
             "scouter": true,
-            "shiftsAssigned": 14,
+            "shiftsAssigned": 16,
             "shiftsSubmitted": 0
         },
         "NorahB": {
@@ -122,17 +122,17 @@
         },
         "RamM": {
             "scouter": true,
-            "shiftsAssigned": 20,
+            "shiftsAssigned": 16,
             "shiftsSubmitted": 0
         },
         "PurnoK": {
-            "scouter": true,
-            "shiftsAssigned": 12,
+            "scouter": false,
+            "shiftsAssigned": 18,
             "shiftsSubmitted": 0
         },
         "DonovanP": {
             "scouter": true,
-            "shiftsAssigned": 19,
+            "shiftsAssigned": 16,
             "shiftsSubmitted": 0
         },
         "IsabelR": {

@@ -1,14 +1,22 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title>Scouting Match <%= matchNumber %></title>
+    <title>Scouting Match <%= matchNumber %>
+    </title>
     <link rel="stylesheet" href="/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
 </head>
+
 <body>
-    <h2>Match #<%= matchNumber %> — Team <%= teamNumber %>
-    </h2>
+
+    <div class="header">
+        <a href="/" class="logo-link">
+            <img src="/logo.png" alt="Logo" class="logo">
+        </a>
+        <h2>Match #<%= matchNumber %> — Team <%= teamNumber %>
+        </h2>
+    </div>
 
     <form action="/submit-scout" method="POST">
         <input type="hidden" name="eventKey" value="<%= eventKey %>">
@@ -16,42 +24,85 @@
         <input type="hidden" name="matchNumber" value="<%= matchNumber %>">
         <input type="hidden" name="teamNumber" value="<%= teamNumber %>">
 
-        <label>1. How good is their auto routine?</label><br>
-        <input type="radio" name="autoRoutine" value="Doesn't score/move" required> Doesn't score/move<br>
-        <input type="radio" name="autoRoutine" value="Moves then shoots"> Moves then shoots<br>
-        <input type="radio" name="autoRoutine" value="Moves then shoots multiple cycles"> Moves then shoots, multiple
-        cycles<br><br>
+        <label>1. How good is their auto routine?</label>
+        <div class="radio-group">
+            <label class="radio-option">
+                <input type="radio" name="autoRoutine" value="Doesn't score/move" required>
+                Doesn't score/move
+            </label>
+            <label class="radio-option">
+                <input type="radio" name="autoRoutine" value="Moves then shoots">
+                Moves then shoots
+            </label>
+            <label class="radio-option">
+                <input type="radio" name="autoRoutine" value="Moves then shoots multiple cycles">
+                Moves then shoots, multiple cycles
+            </label>
+        </div>
 
-        <label>2. Did the alliance win auto?</label><br>
-        <input type="radio" name="autoWin" value="Yes" required> Yes<br>
-        <input type="radio" name="autoWin" value="No"> No<br><br>
+        <label>2. Did the alliance win auto?</label>
+        <div class="radio-group">
+            <label class="radio-option">
+                <input type="radio" name="autoWin" value="Yes" required>
+                Yes
+            </label>
+            <label class="radio-option">
+                <input type="radio" name="autoWin" value="No">
+                No
+            </label>
+        </div>
 
-        <label>3. Actions performed:</label><br>
-        <button type="button" onclick="increment('score')">Score: <span id="scoreVal">0</span></button>
-        <input type="hidden" id="score" name="score" value="0"><br>
+        <label>3. How big is their hopper?</label>
+        <input type="text" name="hopperSize" , placeholder="Type here...">
 
-        <button type="button" onclick="increment('climb')">Climb: <span id="climbVal">0</span></button>
-        <input type="hidden" id="climb" name="climb" value="0"><br>
+        <label>4. Actions performed:</label>
+        <button type="button" onclick="increment('score')">
+            Score: <span id="scoreVal">0</span>
+        </button>
+        <input type="hidden" id="score" name="score" value="0">
 
-        <button type="button" onclick="increment('pass')">Pass: <span id="passVal">0</span></button>
-        <input type="hidden" id="pass" name="pass" value="0"><br><br>
+        <button type="button" onclick="increment('climb')">
+            Climb: <span id="climbVal">0</span>
+        </button>
+        <input type="hidden" id="climb" name="climb" value="0">
 
-        <label>4. Was the team being defensive or offensive?</label><br>
-        <input type="radio" name="role" value="Offensive" required> Offensive<br>
-        <input type="radio" name="role" value="Defensive"> Defensive<br><br>
+        <button type="button" onclick="increment('pass')">
+            Pass: <span id="passVal">0</span>
+        </button>
+        <input type="hidden" id="pass" name="pass" value="0">
 
-        <label>5. What kind of shooting mechanism did they have?</label><br>
+        <label>5. Was the team being defensive or offensive?</label>
+        <div class="radio-group">
+            <label class="radio-option">
+                <input type="radio" name="role" value="Offensive" required>
+                Offensive
+            </label>
+            <label class="radio-option">
+                <input type="radio" name="role" value="Defensive">
+                Defensive
+            </label>
+        </div>
+
+        <label>6. What kind of shooting mechanism did they have?</label>
         <select name="shootingMechanism" required>
             <option value="">--Select--</option>
             <option value="Turret">Turret</option>
             <option value="Stationary">Stationary</option>
             <option value="Double Shooter">Double Shooter</option>
             <option value="N/A">N/A</option>
-        </select><br><br>
+        </select>
 
-        <label>6. Can they climb?</label><br>
-        <input type="radio" name="canClimb" value="Yes" required> Yes<br>
-        <input type="radio" name="canClimb" value="No"> No<br><br>
+        <label>7. Can they climb?</label>
+        <div class="radio-group">
+            <label class="radio-option">
+                <input type="radio" name="canClimb" value="Yes" required>
+                Yes
+            </label>
+            <label class="radio-option">
+                <input type="radio" name="canClimb" value="No">
+                No
+            </label>
+        </div>
 
         <button type="submit">Submit Scouting</button>
     </form>
