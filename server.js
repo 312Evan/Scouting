@@ -144,7 +144,6 @@ app.post('/submit-scout', async (req, res) => {
         const data = req.body;
         const { eventKey, username, matchNumber, teamNumber } = data;
 
-        // Ensure public exports folder exists
         const exportsDir = path.join(__dirname, 'public', 'exports');
         if (!fs.existsSync(exportsDir)) {
             fs.mkdirSync(exportsDir, { recursive: true });
