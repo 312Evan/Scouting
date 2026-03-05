@@ -35,27 +35,17 @@ app.get('/', async (req, res) => {
     }
 });
 
-
 app.post('/select-event', async (req, res) => {
     const { eventKey } = req.body;
     const schedulePath = path.join(__dirname, 'data', `schedule_${eventKey}.json`);
     const usersData = JSON.parse(fs.readFileSync(usersPath));
 
     try {
+
         if (fs.existsSync(schedulePath)) {
-
-            let eventName = eventKey;
-            try {
-                const eventRes = await axios.get(
-                    `https://www.thebluealliance.com/api/v3/event/${eventKey}`,
-                    { headers: { 'X-TBA-Auth-Key': TBA_KEY } }
-                );
-                eventName = eventRes.data.name || eventKey;
-            } catch {}
-
             return res.render('scouterSelect', {
                 eventKey,
-                eventName,
+                eventName: eventKey,
                 users: usersData.users,
                 scheduleAvailable: true
             });
@@ -65,7 +55,7 @@ app.post('/select-event', async (req, res) => {
             .filter(u => usersData.users[u].scouter);
 
         if (scouters.length < 1) {
-            return res.send("Need at least 1 scouter to assign matches.");
+            return res.send("Need at least 1 scouter.");
         }
 
         const matchesRes = await axios.get(
@@ -77,17 +67,13 @@ app.post('/select-event', async (req, res) => {
             .filter(m => m.comp_level === "qm")
             .sort((a, b) => a.match_number - b.match_number);
 
-        if (!matches.length) {
-            return res.send("No qualification matches found.");
-        }
-
         let schedule = {};
-        let assignmentCounts = {};
-        const MAX_MATCHES_PER_SCOUTER = 16;
+        let counts = {};
+        const MAX_MATCHES = 16;
 
         scouters.forEach(s => {
             schedule[s] = [];
-            assignmentCounts[s] = 0;
+            counts[s] = 0;
         });
 
         matches.forEach(match => {
@@ -97,16 +83,11 @@ app.post('/select-event', async (req, res) => {
             ];
 
             teams.forEach(team => {
-
-                const eligible = scouters.filter(
-                    s => assignmentCounts[s] < MAX_MATCHES_PER_SCOUTER
-                );
-
+                const eligible = scouters.filter(s => counts[s] < MAX_MATCHES);
                 if (!eligible.length) return;
 
-                const min = Math.min(...eligible.map(s => assignmentCounts[s]));
-                const candidates = eligible.filter(s => assignmentCounts[s] === min);
-
+                const min = Math.min(...eligible.map(s => counts[s]));
+                const candidates = eligible.filter(s => counts[s] === min);
                 const chosen = candidates[Math.floor(Math.random() * candidates.length)];
 
                 schedule[chosen].push({
@@ -114,24 +95,15 @@ app.post('/select-event', async (req, res) => {
                     team
                 });
 
-                assignmentCounts[chosen]++;
+                counts[chosen]++;
             });
         });
 
         fs.writeFileSync(schedulePath, JSON.stringify(schedule, null, 4));
 
-        let eventName = eventKey;
-        try {
-            const eventRes = await axios.get(
-                `https://www.thebluealliance.com/api/v3/event/${eventKey}`,
-                { headers: { 'X-TBA-Auth-Key': TBA_KEY } }
-            );
-            eventName = eventRes.data.name || eventKey;
-        } catch {}
-
         res.render('scouterSelect', {
             eventKey,
-            eventName,
+            eventName: eventKey,
             users: usersData.users,
             scheduleAvailable: true
         });
@@ -142,7 +114,7 @@ app.post('/select-event', async (req, res) => {
     }
 });
 
-app.post('/login', async (req, res) => {
+app.post('/login', (req, res) => {
     const { eventKey, username } = req.body;
     const schedulePath = path.join(__dirname, 'data', `schedule_${eventKey}.json`);
 
@@ -151,28 +123,11 @@ app.post('/login', async (req, res) => {
     }
 
     const schedule = JSON.parse(fs.readFileSync(schedulePath));
-    let assignedMatches = schedule[username] || [];
-
-    assignedMatches.sort((a, b) => {
-        if (a.match === b.match) {
-            return Number(a.team.replace('frc', '')) -
-                   Number(b.team.replace('frc', ''));
-        }
-        return Number(a.match) - Number(b.match);
-    });
-
-    let eventName = eventKey;
-    try {
-        const eventRes = await axios.get(
-            `https://www.thebluealliance.com/api/v3/event/${eventKey}`,
-            { headers: { 'X-TBA-Auth-Key': TBA_KEY } }
-        );
-        eventName = eventRes.data.name || eventKey;
-    } catch {}
+    const assignedMatches = schedule[username] || [];
 
     res.render('dashboard', {
         eventKey,
-        eventName,
+        eventName: eventKey,
         username,
         matches: assignedMatches
     });
@@ -185,53 +140,74 @@ app.post('/scout', (req, res) => {
 
 
 app.post('/submit-scout', async (req, res) => {
-    const data = req.body;
-    const { eventKey, username, matchNumber, teamNumber } = data;
-
-    const exportPath = path.join(__dirname, 'exports', `${eventKey}.xlsx`);
-    const workbook = new ExcelJS.Workbook();
-
-    if (fs.existsSync(exportPath)) {
-        await workbook.xlsx.readFile(exportPath);
-    }
-
-    let sheet = workbook.getWorksheet("Summary");
-    if (!sheet) {
-        sheet = workbook.addWorksheet("Summary");
-        sheet.addRow(Object.keys(data));
-    }
-
-    sheet.addRow(Object.values(data));
-    await workbook.xlsx.writeFile(exportPath);
-
-    const schedulePath = path.join(__dirname, 'data', `schedule_${eventKey}.json`);
-    const schedule = JSON.parse(fs.readFileSync(schedulePath));
-
-    if (schedule[username]) {
-        schedule[username] = schedule[username].filter(item =>
-            !(String(item.match) === String(matchNumber) &&
-              String(item.team) === String(teamNumber))
-        );
-    }
-
-    fs.writeFileSync(schedulePath, JSON.stringify(schedule, null, 4));
-
-    const users = JSON.parse(fs.readFileSync(usersPath));
-    users.users[username].shiftsSubmitted =
-        (users.users[username].shiftsSubmitted || 0) + 1;
-
-    fs.writeFileSync(usersPath, JSON.stringify(users, null, 4));
-
-    let eventName = eventKey;
     try {
-        const eventRes = await axios.get(
-            `https://www.thebluealliance.com/api/v3/event/${eventKey}`,
-            { headers: { 'X-TBA-Auth-Key': TBA_KEY } }
-        );
-        eventName = eventRes.data.name || eventKey;
-    } catch {}
+        const data = req.body;
+        const { eventKey, username, matchNumber, teamNumber } = data;
 
-    res.render('submitSuccess', { username, eventName });
+        // Ensure public exports folder exists
+        const exportsDir = path.join(__dirname, 'public', 'exports');
+        if (!fs.existsSync(exportsDir)) {
+            fs.mkdirSync(exportsDir, { recursive: true });
+        }
+
+        const exportPath = path.join(exportsDir, `${eventKey}.xlsx`);
+        const workbook = new ExcelJS.Workbook();
+
+        if (fs.existsSync(exportPath)) {
+            await workbook.xlsx.readFile(exportPath);
+        }
+
+        let sheet = workbook.getWorksheet("Summary");
+
+        if (!sheet) {
+            sheet = workbook.addWorksheet("Summary");
+            sheet.columns = Object.keys(data).map(key => ({
+                header: key,
+                key: key
+            }));
+        }
+
+        sheet.addRow(data);
+        await workbook.xlsx.writeFile(exportPath);
+
+        const schedulePath = path.join(__dirname, 'data', `schedule_${eventKey}.json`);
+        const schedule = JSON.parse(fs.readFileSync(schedulePath));
+
+        if (schedule[username]) {
+            schedule[username] = schedule[username].filter(item =>
+                !(String(item.match) === String(matchNumber) &&
+                  String(item.team) === String(teamNumber))
+            );
+        }
+
+        fs.writeFileSync(schedulePath, JSON.stringify(schedule, null, 4));
+
+        const users = JSON.parse(fs.readFileSync(usersPath));
+        users.users[username].shiftsSubmitted =
+            (users.users[username].shiftsSubmitted || 0) + 1;
+
+        fs.writeFileSync(usersPath, JSON.stringify(users, null, 4));
+
+        res.render('submitSuccess', {
+            username,
+            eventName: eventKey,
+            fileLink: `/exports/${eventKey}.xlsx`
+        });
+
+    } catch (err) {
+        console.error("Submit scout error:", err);
+        res.send("Error saving scout data.");
+    }
+});
+
+app.get('/download/:eventKey', (req, res) => {
+    const filePath = path.join(__dirname, 'public', 'exports', `${req.params.eventKey}.xlsx`);
+
+    if (fs.existsSync(filePath)) {
+        res.download(filePath);
+    } else {
+        res.send("File not found.");
+    }
 });
 
 

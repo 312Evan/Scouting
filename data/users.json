@@ -18,7 +18,7 @@
         "RebeccaR": {
             "scouter": true,
             "shiftsAssigned": 16,
-            "shiftsSubmitted": 3
+            "shiftsSubmitted": 4
         },
         "JarrodC": {
             "scouter": false,
@@ -40,11 +40,6 @@
             "shiftsAssigned": 0,
             "shiftsSubmitted": 0
         },
-        "AkshyatD": {
-            "scouter": true,
-            "shiftsAssigned": 16,
-            "shiftsSubmitted": 0
-        },
         "MichaelK": {
             "scouter": false,
             "shiftsAssigned": 0,
@@ -58,7 +53,7 @@
         "AbrarJ": {
             "scouter": true,
             "shiftsAssigned": 16,
-            "shiftsSubmitted": 0
+            "shiftsSubmitted": 1
         },
         "TylerP": {
             "scouter": true,
