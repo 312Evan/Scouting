@@ -149,7 +149,7 @@ app.post('/submit-scout', async (req, res) => {
             fs.mkdirSync(exportsDir, { recursive: true });
         }
 
-        const exportPath = path.join(exportsDir, `${eventKey}.xlsx`);
+        const exportPath = path.join(exportsDir, `${eventKey} + "2068".xlsx`);
         const workbook = new ExcelJS.Workbook();
 
         if (fs.existsSync(exportPath)) {
